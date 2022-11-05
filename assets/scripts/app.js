@@ -80,7 +80,7 @@ function reset() {
 
 function endRound() {
   const initaialPlayerHealth = currentPlayerHealth;
-  const playerDamage = playerDamage (MONSTER_ATTACK_VALUE);
+  const playerDamage = dealPlayerDamage(MONSTER_ATTACK_VALUE);
   currentPlayerHealth -= playerDamage;
   writrToLog(
     LOG_EVENT_MONSTER_ATTACK,
@@ -93,7 +93,7 @@ function endRound() {
     hasBonusLife = false;
     removeBonusLife();
     currentPlayerHealth = initaialPlayerHealth;
-    currentPlayerHealth(initaialPlayerHealth);
+    setPlayerHealth(initaialPlayerHealth);
     alert('You Would be death but bonus life saved you');
   }
 
@@ -132,7 +132,7 @@ function endRound() {
   }
 }
 
-function attcakMonster(mode) {
+function attackMonster(mode) {
   let maxDamage;
   let logEvent;
   if (mode === MODE_ATTACK) {
@@ -155,11 +155,11 @@ function attcakMonster(mode) {
 }
 
 function attackHandler() {
-  attcakMonster(MODE_ATTACK);
+  attackMonster(MODE_ATTACK);
 }
 
 function strongAttackHandler() {
-  attcakMonster(MODE_STRONG_ATTACK);
+  attackMonster(MODE_STRONG_ATTACK);
 }
 
 function healPlayerHandler() {
