@@ -72,9 +72,8 @@ function writrToLog(event, value, monsterHealt, playerHealt) {
         finalPlayerHealth: playerHealt,
       };
       break;
-      default:
-        logEntry = {};
-
+    default:
+      logEntry = {};
   }
   // if (event === LOG_EVENT_PLAYER_ATTACK) {
   //   logEntry.target = 'MONSTER';
@@ -223,8 +222,32 @@ function healPlayerHandler() {
 }
 
 function printLogHandler() {
-  console.log(battleLog);
+  for (let b = 0; b < 3; b++) {
+    console.log('-------');
+  }
+//   let x = 0
+//   while (x < 3) {
+// console.log('KuKu');
+// x++;
+//   }
+  // for (let i = 10; i>0; i--) {
+  //   console.log('Countdown');
+  // }
+// for (let i = 0; i < battleLog.length; i++) {
+// console.log(battleLog[i])
+// }
+ 
+let i = 0
+for (const logEntry of battleLog) {
+  console.log(`#${i}`);
+  for(const key in logEntry) {
+   console.log (`${key}  => ${logEntry[key]}`)
+    i++
+  }
 }
+  }
+
+
 attackBtn.addEventListener('click', attackHandler);
 strongAttackBtn.addEventListener('click', strongAttackHandler);
 healBtn.addEventListener('click', healPlayerHandler);
